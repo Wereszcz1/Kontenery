@@ -2,14 +2,14 @@
 
 public abstract class Container
 {
-    private static int counter = 1;
+    private static int _counter = 1;
     public string SerialNumber { get; }
     public double MaxLoad { get; }
-    public double CurrentLoad { get; set; }
+    public double CurrentLoad { get; protected set; }
 
     protected Container(string type, double maxLoad)
     {
-        SerialNumber = $"KON-{type}-{counter++}";
+        SerialNumber = $"KON-{type}-{_counter++}";
         MaxLoad = maxLoad;
         CurrentLoad = 0;
     }

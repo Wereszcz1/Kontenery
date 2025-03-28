@@ -1,14 +1,9 @@
 ﻿namespace APBD1;
 
-public class GasContainer : Container, IHazardNotifier
+public class GasContainer(double maxLoad, double pressure) 
+    : Container("G", maxLoad), IHazardNotifier
 {
-    public double Pressure { get; }
-    
-    public GasContainer(double maxLoad, double pressure)
-        : base("G", maxLoad)
-    {
-        Pressure = pressure;
-    }
+    public double Pressure { get; } = pressure;
 
     public override void Unload()
     {

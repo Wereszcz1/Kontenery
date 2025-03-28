@@ -1,14 +1,9 @@
 ﻿namespace APBD1;
 
-public class LiquidContainer : Container, IHazardNotifier
+public class LiquidContainer(double maxLoad, bool isHazardous) 
+    : Container("L", maxLoad), IHazardNotifier
 {
-    public bool IsHazardous { get; }
-
-    public LiquidContainer(double maxLoad, bool isHazardous)
-        : base("L", maxLoad)
-    {
-        IsHazardous = isHazardous;
-    }
+    private bool IsHazardous { get; } = isHazardous;
 
     public override void Load(double weight)
     {
