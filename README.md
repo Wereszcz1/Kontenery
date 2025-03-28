@@ -22,9 +22,11 @@ Podstawowa klasa reprezentująca kontener.
   
   - Load(double weight): dodaje ładunek do kontenera.
   
-  - Unload(): opróżnia kontener.
+  - Unload(): opróżnia kontener z całego ładunku
   
   - PrintInfo(): wyświetla informacje o kontenerze.
+
+
 
 2. LiquidContainer
 
@@ -36,6 +38,8 @@ Dziedziczy po Container, obsługuje ciecze.
   
   NotifyHazard(message): ostrzega o zagrożeniu.
 
+
+
 3. GasContainer
 
 Dziedziczy po Container, obsługuje gazy.
@@ -46,15 +50,19 @@ Dziedziczy po Container, obsługuje gazy.
   
   NotifyHazard(message): ostrzega o zagrożeniu.
 
+
+
 4. RefrigeratedContainer
 
 Dziedziczy po Container, przechowuje produkty wymagające chłodzenia.
 
   Pola: ProductType, RequiredTemperature, CurrentTemperature.
   
-  Dodatkowa metoda Load(weight, productType) – sprawdza typ produktu i kontroluje temperaturę.
+  Dodatkowa metoda Load(weight, productType): sprawdza typ produktu i kontroluje temperaturę.
   
   PrintInfo(): rozszerzona o wyświetlanie temperatury i typu produktu.
+
+
 
 5. Ship
 
@@ -64,12 +72,21 @@ Reprezentuje statek przewożący kontenery.
   
   Metody:
   
-  - LoadContainer(container), LoadContainers(list), RemoveContainer(serialNumber),
-    ReplaceContainer(oldSerialNumber, newContainer), TransferContainer(targetShip, serialNumber).
+  - LoadContainer(container): załadowanie kontenera na statek
   
-  - PrintShipInfo(): wypisuje informacje o statku.
+  - LoadContainers(list): załadowanie listy kontenerów na statek
   
-  - PrintAllContainers(): wypisuje informacje o kontenerach na statku.
+  - RemoveContainer(serialNumber): zdjęcie kontenera ze statku
+  
+  - ReplaceContainer(oldSerialNumber, newContainer): zastąpienie kontenera - zdjęcie obecnego i załadowanie innego w jego miejsce
+  
+  - TransferContainer(targetShip, serialNumber): "przełożenie" danego kontenera z jednego statku na inny
+  
+  - PrintShipInfo(): wypisuje informacje o danym statku
+  
+  - PrintAllContainers(): wypisuje informacje o kontenerach na danym statku
+
+
 
 6. Klasa Program (Testowanie funkcjonalności)
 
